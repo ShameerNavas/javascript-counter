@@ -12,20 +12,19 @@ function updateDisplay() {
         countDisplay.style.color = "black";
     }
 }
+function getStep() {
+    const stepInput = document.getElementById("step").value;
+    return parseInt(stepInput) || 1;
+}
 
 function increase() {
-    count++;
+    count += getStep();
     updateDisplay();
 }
 
 function decrease() {
-    if (count > 0) {
-        count--;
+    if (count - getStep() >= 0) {
+        count -= getStep();
     }
-    updateDisplay();
-}
-
-function reset() {
-    count = 0;
     updateDisplay();
 }
