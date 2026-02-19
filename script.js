@@ -4,14 +4,17 @@ const countDisplay = document.getElementById("count");
 function updateDisplay() {
     countDisplay.textContent = count;
 
+    const decreaseBtn = document.getElementById("decreaseBtn");
+
     if (count > 0) {
         countDisplay.style.color = "green";
-    } else if (count < 0) {
-        countDisplay.style.color = "red";
+        decreaseBtn.disabled = false;
     } else {
         countDisplay.style.color = "black";
+        decreaseBtn.disabled = true;
     }
 }
+
 function getStep() {
     const stepInput = document.getElementById("step").value;
     return parseInt(stepInput) || 1;
