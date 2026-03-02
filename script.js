@@ -1,8 +1,17 @@
 let count = 0;
+const savedValue = localStorage.getItem("counterValue");
+
+if (savedValue !== null) {
+    count = parseInt(savedValue);
+}
 const countDisplay = document.getElementById("count");
+
+updateDisplay();
+
 
 function updateDisplay() {
     countDisplay.textContent = count;
+localStorage.setItem("counterValue", count);
 
     const decreaseBtn = document.getElementById("decreaseBtn");
 
